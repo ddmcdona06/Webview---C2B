@@ -21,7 +21,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "../assets/c2b-icon.ico"
+      "favicon": "../assets/c2b-icon.png"
     },
     "plugins": [
       "expo-router",
