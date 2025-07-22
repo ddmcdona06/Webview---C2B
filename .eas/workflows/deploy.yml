@@ -1,0 +1,15 @@
+name: Deploy
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+
+  deploy:
+    type: deploy
+    name: Deploy
+    environment: production
+    params:
+      prod: true
+
