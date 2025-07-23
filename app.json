@@ -4,11 +4,12 @@
     "slug": "connect2black-webview",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "../assets/c2b-icon.png",
+    "icon": "./assets/c2b-icon.png",
     "scheme": "connect2blackwebview",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
+      "bundleIdentifier": "com.ddmcdona06.connect2blackwebview",
       "supportsTablet": true
     },
     "android": {
@@ -21,14 +22,14 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "../assets/c2b-icon.png"
+      "favicon": "./assets/c2b-icon.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "../assets/c2b-icon.png",
+          "image": "./assets/c2b-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
