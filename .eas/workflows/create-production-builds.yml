@@ -1,15 +1,16 @@
 name: Create Production Builds
 
-
 on:
   push:
     branches: ['master']
 
-  jobs:
+jobs:
     build_android:
-      type: build
+      type: build #creates a production build for android
       params:
         platform: android
     build_ios:
-      type: build
+      type: build #creates a production build for ios
+      params:
+        platform: ios
 
