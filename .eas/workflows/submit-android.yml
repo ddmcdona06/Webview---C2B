@@ -16,4 +16,4 @@ jobs:
     type: submit
     params:
       platform: android
-      build_id: ${{ needs.build_android.outputs.build_id }}
+      build_id: 5a4f0f95-ff3b-43d7-a9da-48f144df0db8
