@@ -19,8 +19,8 @@
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "package": "com.ddmcdona06.connect2blackwebview"
+      "permissions": [],
+      "package": "com.ddmcdona06.connect2blackwebview",
     },
     "web": {
       "bundler": "metro",

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SafeAreaView, View, Text, Button, Image, Platform, TouchableOpacity } from 'react-native';
 import { WebView } from 'react-native-webview';
 import styles from './stylesheet';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { StatusBar } from 'expo-status-bar';
 // import { setMaxListeners } from 'events';
 
@@ -34,32 +35,35 @@ export default function Index() {
 
   if (Platform.OS === 'web') {
     return (
-      <SafeAreaView style={styles.container}>
-        {renderNavBar()}
-        <iframe
-          src={url}
-          style={{ width: '100%', height: '100%', border: 'none' }}
-          title="Connect2Black"
-        />
-      </SafeAreaView>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          {renderNavBar()}
+          <iframe
+            src={url}
+            style={{ width: '100%', height: '100%', border: 'none' }}
+            title="Connect2Black"
+            />
+        </SafeAreaView>
+      </SafeAreaProvider>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      {renderNavBar()}
-      {isError ? (
-        <View style={styles.errorContainer}>
-          <Image
-            source={require('../assets/error.png')}
-            style={styles.image}
-            resizeMode="contain"
-          />
-          <Text style={styles.errorText}>Oops! No Internet Connection</Text>
-          <Button title="Try Again" onPress={reloadWebView} />
-        </View>
-      ) : (
-        <WebView
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        {renderNavBar()}
+        {isError ? (
+          <View style={styles.errorContainer}>
+            <Image
+              source={require('../assets/error.png')}
+              style={styles.image}
+              resizeMode="contain"
+              />
+            <Text style={styles.errorText}>Oops! No Internet Connection</Text>
+            <Button title="Try Again" onPress={reloadWebView} />
+          </View>
+        ) : (
+          <WebView
           key={webKey}
           source={{ uri: url }}
           style={{ flex: 1 }}
@@ -68,9 +72,10 @@ export default function Index() {
           startInLoadingState
           onError={() => setIsError(true)}
           onHttpError={() => setIsError(true)}
-        />
-      )}
-    </SafeAreaView>
+          />
+        )}
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
