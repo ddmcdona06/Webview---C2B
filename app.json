@@ -1,49 +1,57 @@
 {
   "expo": {
-    "name": "connect2black-webview",
+    "name": "Connect2Black",
     "slug": "connect2black-webview",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/c2b-icon.png",
-    "scheme": "connect2blackwebview",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/c2b-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
     "ios": {
       "bundleIdentifier": "com.ddmcdona06.connect2blackwebview",
       "supportsTablet": true,
+      "associatedDomains": [
+        "applinks:connect2black.com",
+        "applinks:www.connect2black.com",
+        "applinks:connect2black.com",
+        "applinks:www.connect2black.com"
+      ],
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#ffffff"
-      },
-      "permissions": [],
       "package": "com.ddmcdona06.connect2blackwebview",
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/c2b-icon.png"
-    },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
+      "intentFilters": [
         {
-          "image": "./assets/c2b-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "action": "VIEW",
+          "autoVerify": true,
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ],
+          "data": [
+            {
+              "scheme": "https",
+              "host": "connect2black.com"
+            },
+            {
+              "scheme": "https",
+              "host": "www.connect2black.com"
+            }
+          ]
         }
       ]
-    ],
+    },
+    "scheme": "connect2black",
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
-      "router": {},
       "eas": {
         "projectId": "e3dffbbc-9b14-4477-ba13-a0dfb609e8a8"
       }
