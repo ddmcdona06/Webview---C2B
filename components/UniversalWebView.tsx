@@ -15,7 +15,6 @@ export default function UniversalWebView({ uri, onError, renderLoading }: Props)
   const webViewRef = useRef<WebView>(null);
   const [canGoBack, setCanGoBack] = useState(false);
 
-  // ── Android hardware back button ────────────────────────
   useEffect(() => {
     if (Platform.OS !== "android") return;
 
@@ -30,7 +29,6 @@ export default function UniversalWebView({ uri, onError, renderLoading }: Props)
     return () => handler.remove();
   }, [canGoBack]);
 
-  // ── Location: request permission and inject into WebView ─
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -87,14 +85,26 @@ export default function UniversalWebView({ uri, onError, renderLoading }: Props)
         startInLoadingState
         cacheEnabled={false}
         cacheMode="LOAD_NO_CACHE"
+        mixedContentMode="always"
+        allowsInlineMediaPlayback={true}
+        mediaPlaybackRequiresUserAction={false}
+        allowsFullscreenVideo={true}
         onError={onError}
         onHttpError={onError}
         renderLoading={() => <Loader />}
         onNavigationStateChange={(state: WebViewNavigation) => setCanGoBack(state.canGoBack)}
         allowsBackForwardNavigationGestures={true}
+        injectedJavaScript={`
+          (function() {
+            window.dispatchEvent(new Event('resize'));
+            window.scrollTo(0, 1);
+            window.scrollTo(0, 0);
+            window.dispatchEvent(new Event('load'));
+          })();
+          true;
+        `}
       />
 
-      {/* Floating in-app back button */}
       <TouchableOpacity
         onPress={() => webViewRef.current?.goBack()}
         disabled={!canGoBack}
