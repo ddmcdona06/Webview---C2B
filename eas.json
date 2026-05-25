@@ -16,7 +16,8 @@
         "autoIncrement": true
       },
       "ios": {
-        "autoIncrement": true
+        "autoIncrement": true,
+        "image": "latest"
       }
     }
   },
