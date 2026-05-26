@@ -16,9 +16,7 @@
       "supportsTablet": true,
       "associatedDomains": [
         "applinks:connect2black.com",
-        "applinks:www.connect2black.com",
-        "applinks:connect2black.com",
-        "applinks:www.connect2black.com"
+        "webcredentials:connect2black.com"
       ],
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
@@ -55,6 +53,9 @@
       "eas": {
         "projectId": "e3dffbbc-9b14-4477-ba13-a0dfb609e8a8"
       }
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

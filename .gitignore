@@ -39,3 +39,6 @@ yarn-error.*
 app-example
 
 ANDROID_HOME = C:\Users\ddmcd\AppData\Local\Android\sdk
+
+/android
+/ios
